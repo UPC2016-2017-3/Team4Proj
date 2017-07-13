@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.sanqing.po.Institution" table="institution">
+  <id column="id" name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" length="50" name="name" type="string"/>
+  <property generated="never" lazy="false" length="1000" name="reason" type="string"/>
+  <property column="explains" generated="never" lazy="false"
+   length="1000" name="explain" type="string"/>
+  <property generated="never" lazy="false" length="23" name="createtime" type="timestamp"/>
+ </class>
+</hibernate-mapping>
