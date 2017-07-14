@@ -1,0 +1,50 @@
+﻿using System;
+using System.Data; 
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class GongGaoDetial : System.Web.UI.Page
+{
+   
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                
+                if (Request["ID"] != null)
+                {
+                    InitData();
+                }
+            }
+        }
+        protected void InitData()
+        {
+
+            string id = Request["ID"].ToString();
+
+            try
+            {
+
+                string SQL = "select * from TB_GongGao where ID=" + id ;
+                DataTable dt = DBHelper.GetDataSet(SQL).Tables[0];
+                this.dlTopic.DataSource = dt;
+                this.dlTopic.DataBind();
+               
+            }
+            catch
+            {
+            }
+
+        }
+
+
+  
+
+    }
+ 
